@@ -1,0 +1,14 @@
+{
+  "name": "nlw4-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/DouglasVarollo/NLW4-node.git",
+  "author": "Douglas Varollo <douglasvarollo@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11"
+  }
+}

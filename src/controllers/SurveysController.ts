@@ -1,9 +1,10 @@
+import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
 
 import { SurveysRepository } from '../repositories/SurveysRepository';
 
 export class SurveysController {
-  async index(request, response) {
+  async index(request: Request, response: Response) {
     const surveysRepository = getCustomRepository(SurveysRepository);
 
     const surveys = await surveysRepository.find();
@@ -11,7 +12,7 @@ export class SurveysController {
     response.json(surveys);
   }
 
-  async create(request, response) {
+  async create(request: Request, response: Response) {
     const { title, description } = request.body;
 
     const surveysRepository = getCustomRepository(SurveysRepository);

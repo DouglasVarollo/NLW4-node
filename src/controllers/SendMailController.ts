@@ -46,11 +46,13 @@ export class SendMailController {
       description: survey.description,
       link: process.env.URL_MAIL,
       name: user.name,
-      user_id: user.id,
+      id: '',
       title: survey.title
     };
 
     if (surveyUserAlreadyExists) {
+      variables.id = surveyUserAlreadyExists.id;
+
       await sendMailService.execute(email, survey.title, variables, npsPath);
 
       return response.json(surveyUserAlreadyExists);
@@ -62,6 +64,8 @@ export class SendMailController {
     });
 
     await surveysUsersRepository.save(surveyUser);
+
+    variables.id = surveyUser.id;
 
     await sendMailService.execute(email, survey.title, variables, npsPath);
 

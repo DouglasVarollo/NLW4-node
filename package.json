@@ -8,11 +8,11 @@
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules --transpile-only src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
-    "test": "set \"NODE_ENV=test\" && jest",
-    "posttest": "del .\\src\\database\\database.test.sqlite"
+    "test": "set \"NODE_ENV=test\" && jest -i"
   },
   "dependencies": {
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "handlebars": "^4.7.7",
     "nodemailer": "^6.5.0",
     "reflect-metadata": "^0.1.13",

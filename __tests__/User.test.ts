@@ -1,9 +1,17 @@
 import request from 'supertest';
+import { getConnection } from 'typeorm';
 
 import app from '../src/app';
 import createConnection from '../src/database';
 
 describe('Users', function () {
+  afterAll(async function () {
+    const connection = getConnection();
+
+    await connection.dropDatabase();
+    await connection.close();
+  });
+
   beforeAll(async function () {
     const connection = await createConnection();
 
